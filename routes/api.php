@@ -20,3 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('auth/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('auth/login', [\App\Http\Controllers\AuthController::class, 'login']);
+
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('news', [\App\Http\Controllers\NewsController::class, 'index']);
+});
