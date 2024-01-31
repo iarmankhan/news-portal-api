@@ -12,7 +12,19 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $categories = [
+            "business",
+            "entertainment",
+            "general",
+            "health",
+            "science",
+            "sports",
+            "technology",
+        ];
+
+        foreach ($categories as $category) {
+            $schedule->command('app:fetch-news ' . $category)->hourly();
+        }
     }
 
     /**
