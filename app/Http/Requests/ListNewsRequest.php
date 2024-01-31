@@ -26,6 +26,7 @@ class ListNewsRequest extends FormRequest
             'page' => ['integer', 'min:1'],
             'limit' => ['integer', 'min:1', 'max:100'],
             'search' => ['string', 'max:255'],
+            'category' => ['string', 'max:255'],
         ];
     }
 }
